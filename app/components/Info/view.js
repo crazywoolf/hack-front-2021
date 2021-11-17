@@ -2,9 +2,10 @@ import React, {Fragment} from 'react';
 import {P} from 'vienna-ui';
 import { HandCash2, Card } from 'vienna.icons';
 import {AmountBox, CustomButton, DetailsBox, HeaderBox, IconBox, Row, TitleBox} from './styles';
+import {LogoSBP} from "../LogoSBP";
 
 export const InfoView = (props) => {
-  const { info } = props;
+  const { info, handleClick } = props;
 
   return (
     <Fragment>
@@ -38,7 +39,8 @@ export const InfoView = (props) => {
             </Row>
         </AmountBox>
 
-        <CustomButton bgColor="#22589E">
+        <CustomButton bgColor="#22589E" bgHoverColor="#15417b" onClick={handleClick}>
+            <LogoSBP />
             Оплата по СБП
         </CustomButton>
         <CustomButton design="outline">

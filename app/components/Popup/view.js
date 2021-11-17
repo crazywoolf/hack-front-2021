@@ -4,7 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import { CloseBox, Container, Overlay } from './styles';
 import { Info } from '../Info';
 import { RequestStatus } from '../RequestStatus';
-// import { getData } from '../../api/getData';
+import {ROUTES} from "../../constants";
+import { payment } from '../../api/payment';
 
 export const PopupView = (props) => {
   const [loading, setLoading] = useState(false);
@@ -21,21 +22,22 @@ export const PopupView = (props) => {
   }
 
   const handleClickPayment = () => {
-    const { info, userId, history } = props;
+    console.log('handleClickPayment');
+    const { userId, history } = props;
 
     setLoading(true);
 
-    // getData(
-    //   userId,
-    //   () => {
-    //     onSuccess();
-    //     history.push('/getData');
-    //   },
-    //   () => {
-    //     onFailed();
-    //     history.push(ROUTES.PAYMENT_FAILED);
-    //   }
-    // );
+    payment(
+      userId,
+      () => {
+        onSuccess();
+        history.push(ROUTES.PAYMENT_SUCCESS);
+      },
+      () => {
+        onFailed();
+        history.push(ROUTES.PAYMENT_FAILED);
+      }
+    );
   }
 
   const { userId, onClose, info } = props;

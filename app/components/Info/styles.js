@@ -50,5 +50,15 @@ export const CustomButton = styled(Button)`
   margin-bottom: 16px;
   font-size: 16px;
   font-weight: bold;
+  
+  &:hover,
+  &:focus {
+    ${props => props.bgHoverColor && 'background-color: ' + props.bgHoverColor + ';'}
+  }
+  
+  svg {
+    height: 24px;
+    width: 20px;
+  }
 `;
 

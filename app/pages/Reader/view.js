@@ -82,6 +82,7 @@ export class ReaderView extends Component {
         },
         (data) => {
           this.onSuccess(data);
+          // this.onFailed(data);
         }
     );
   }
@@ -126,7 +127,7 @@ export class ReaderView extends Component {
           </Button>
         </FeatureToggle>
 
-        {popupOpen && <Popup info={info} qrPath={scanResult} onClose={this.onClose}/>}
+        {popupOpen && <Popup info={info} userId={scanResult || info.id} onClose={this.onClose}/>}
       </Fragment>
     );
   }

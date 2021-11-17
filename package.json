@@ -27,6 +27,7 @@
     "babel-plugin-espower": "^3.0.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-react": "^6.5.0",
+    "copy-webpack-plugin": "^10.0.0",
     "html-webpack-plugin": "^2.15.0",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
