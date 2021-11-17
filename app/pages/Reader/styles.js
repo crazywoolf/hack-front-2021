@@ -55,3 +55,11 @@ export const QRBox = styled.div`
 export const MarginBox = styled.div`
   margin-bottom: ${props => props.size}px;
 `;
+
+export const FeatureToggle = styled.div`
+  position: absolute;
+  z-index: 2;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+`;

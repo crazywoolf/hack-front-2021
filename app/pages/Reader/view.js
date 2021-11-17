@@ -1,11 +1,11 @@
 import React, {Fragment, Component} from 'react';
 import QrReader from 'react-qr-reader';
-import { P } from 'vienna-ui';
-import { WarningFilled } from 'vienna.icons';
+import {Button, P} from 'vienna-ui';
+import {WarningFilled} from 'vienna.icons';
 import { Logo } from '../../components/Logo';
-import { Container, QRBox, MarginBox, IconBox } from './styles';
-// import { Popup } from '../../components/Popup';
-// import { getQRInfo } from '../../api/getQRInfo';
+import {Container, QRBox, MarginBox, IconBox, FeatureToggle} from './styles';
+import { Popup } from '../../components/Popup';
+import {getData} from '../../api/getData';
 
 export class ReaderView extends Component {
   constructor(props) {
@@ -62,6 +62,23 @@ export class ReaderView extends Component {
     this.props.history.push('/reader');
   };
 
+  onSuccess = () => {
+    this.setState({
+      popupOpen: true,
+      scanResult: 123456
+    })
+  }
+
+  handleClick = () => {
+    getData(
+        '123',
+        () => {
+          this.onSuccess();
+        },
+        () => console.log
+    );
+  }
+
   render() {
     const { err, scanResult, popupOpen } = this.state;
 
@@ -96,7 +113,13 @@ export class ReaderView extends Component {
           />
         </QRBox>
 
-        {/*{popupOpen && <Popup actionType={qrType as QRType} qrPath={scanResult} locale={locale} onClose={this.onClose}/>}*/}
+        <FeatureToggle>
+          <Button design='accent' size='xxl' onClick={this.handleClick}>
+            https нет. Допустим отсканил
+          </Button>
+        </FeatureToggle>
+
+        {popupOpen && <Popup qrPath={scanResult} onClose={this.onClose}/>}
       </Fragment>
     );
   }
