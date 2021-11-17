@@ -3,7 +3,7 @@ FROM node:latest
 COPY . /src
 WORKDIR /src
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 RUN npm run production
 
 EXPOSE 3000
