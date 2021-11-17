@@ -15,6 +15,7 @@ export class ReaderView extends Component {
       scanResult: '',
       err: false,
       popupOpen: false,
+      info: null,
     }
   };
 
@@ -28,15 +29,26 @@ export class ReaderView extends Component {
   onSuccess = (res) => {
     this.setState({
       err: false,
-      popupOpen: true
+      popupOpen: true,
+      info: res,
     });
   };
 
   handleScan = (data) => {
     const { scanResult, popupOpen } = this.state;
-
     if (data && data !== scanResult && !popupOpen) {
       console.log({data});
+
+      getData(
+          data,
+          (info) => {
+            this.onSuccess(info);
+          },
+          (info) => {
+            this.onSuccess(info);
+          }
+      );
+
       this.setState({
         scanResult: data,
         err: data === '',
@@ -62,25 +74,20 @@ export class ReaderView extends Component {
     this.props.history.push('/reader');
   };
 
-  onSuccess = () => {
-    this.setState({
-      popupOpen: true,
-      scanResult: 123456
-    })
-  }
-
   handleClick = () => {
     getData(
         '123',
-        () => {
-          this.onSuccess();
+        (data) => {
+          this.onSuccess(data);
         },
-        () => console.log
+        (data) => {
+          this.onSuccess(data);
+        }
     );
   }
 
   render() {
-    const { err, scanResult, popupOpen } = this.state;
+    const { err, scanResult, popupOpen, info } = this.state;
 
     return (
       <Fragment>
@@ -115,11 +122,11 @@ export class ReaderView extends Component {
 
         <FeatureToggle>
           <Button design='accent' size='xxl' onClick={this.handleClick}>
-            https нет. Допустим отсканил
+            не считался qr?. Жми
           </Button>
         </FeatureToggle>
 
-        {popupOpen && <Popup qrPath={scanResult} onClose={this.onClose}/>}
+        {popupOpen && <Popup info={info} qrPath={scanResult} onClose={this.onClose}/>}
       </Fragment>
     );
   }

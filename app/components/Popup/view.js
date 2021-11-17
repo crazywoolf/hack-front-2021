@@ -21,7 +21,7 @@ export const PopupView = (props) => {
   }
 
   const handleClickPayment = () => {
-    const { userId, history } = props;
+    const { info, userId, history } = props;
 
     setLoading(true);
 
@@ -38,14 +38,14 @@ export const PopupView = (props) => {
     // );
   }
 
-  const { userId, onClose } = props;
+  const { userId, onClose, info } = props;
 
   return (
     <Overlay>
       <Container>
         <Switch>
-          <Route path={`/reader/payment`} exact>
-            <Info loading={loading} userId={userId} handleClick={handleClickPayment}/>
+          <Route path={`/reader`} exact>
+            <Info loading={loading} info={info} userId={userId} handleClick={handleClickPayment}/>
           </Route>
           <Route path={`/reader/status`}>
             <RequestStatus isError={requestFailed} handleClose={onClose}/>

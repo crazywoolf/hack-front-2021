@@ -1,47 +1,50 @@
 import React, {Fragment} from 'react';
-import { Button, H6, P } from 'vienna-ui';
-import { DownSmall } from 'vienna.icons';
-import { AbsoluteVerticalAlignBox, MarginLeft, TextBox } from './styles';
+import {P} from 'vienna-ui';
+import { HandCash2, Card } from 'vienna.icons';
+import {AmountBox, CustomButton, DetailsBox, HeaderBox, IconBox, Row, TitleBox} from './styles';
 
 export const InfoView = (props) => {
-  const { locale, loading, handleClick } = props;
+  const { info } = props;
 
   return (
     <Fragment>
-      {/*<H6 margin='xxl'>*/}
-      {/*  {locales[LocalesTokens.SUBSCRIPTION_TITLE][locale]}*/}
-      {/*</H6>*/}
+      <HeaderBox>
+          <IconBox>
+              <Card color="#fff" />
+          </IconBox>
+          <TitleBox>
+              <P size="xxl" weight="bold">{info.fio}</P>
+              <P size="l" color="seattle100">IKEA FAMILY: {info.id}</P>
+          </TitleBox>
+      </HeaderBox>
 
-      {/*<P size='l' color='seattle60' margin='m'>*/}
-      {/*  {locales[LocalesTokens.APPOINTMENT][locale]}*/}
-      {/*</P>*/}
-      {/*<TextBox>*/}
-      {/*  <P size='xl' color='brand-primary'>*/}
-      {/*    {locales[LocalesTokens.LINKING][locale]}*/}
-      {/*  </P>*/}
-      {/*</TextBox>*/}
+        <DetailsBox>
+            <Row>
+                <P size="l" color="seattle100">Сумма</P>
+                <P size="l" color="primary">2 589,00 ₽</P>
+            </Row>
+            <Row>
+                <P size="l" color="seattle100">Скидка</P>
+                <P size="l" color="primary">-{info.discount}%</P>
+            </Row>
+        </DetailsBox>
 
-      {/*<P size='l' color='seattle60' margin='m'>*/}
-      {/*  {locales[LocalesTokens.DEBIT_ACCOUNT][locale]}*/}
-      {/*</P>*/}
-      {/*<TextBox>*/}
-      {/*  <RaifLogo />*/}
-      {/*  <MarginLeft>*/}
-      {/*    <P size='l' color='seattle60' margin='xxs'>*/}
-      {/*      {locales[LocalesTokens.CURRENT_ACCOUNT][locale]}*/}
-      {/*    </P>*/}
-      {/*    <P size='xl' color='brand-primary'>*/}
-      {/*      {locales[LocalesTokens.RANDOM_BALANCE][locale]}*/}
-      {/*    </P>*/}
-      {/*    <AbsoluteVerticalAlignBox>*/}
-      {/*      <DownSmall size='l' />*/}
-      {/*    </AbsoluteVerticalAlignBox>*/}
-      {/*  </MarginLeft>*/}
-      {/*</TextBox>*/}
+        <AmountBox>
+            <Row>
+                <P size="xl" weight="medium" color="seattle100">К оплате</P>
+                <P size="xl" weight="medium" color="primary">
+                    {String(((2589 * (100 - info.discount) / 100)).toFixed(2)).replace('.', ',')} ₽
+                </P>
+            </Row>
+        </AmountBox>
 
-      {/*<Button design='accent' size='xxl' loading={loading} onClick={handleClick}>*/}
-      {/*  {locales[LocalesTokens.SUBSCRIPTION_BUTTON][locale]}*/}
-      {/*</Button>*/}
+        <CustomButton bgColor="#22589E">
+            Оплата по СБП
+        </CustomButton>
+        <CustomButton design="outline">
+            <HandCash2/>
+            Оплата наличными
+        </CustomButton>
     </Fragment>
   );
 };
