@@ -7,7 +7,7 @@ export const Overlay = styled.div`
   left: 0;
   right: 0;
   z-index: 3;
-  background-color: rgba(43, 45, 51, 0.89);
+  background-color: #22589Ee3;
 `
 
 export const Container = styled.div`

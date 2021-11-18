@@ -57,6 +57,7 @@ export const MarginBox = styled.div`
 `;
 
 export const FeatureToggle = styled.div`
+  ${props => props.noDisplay && 'display: none'};
   position: absolute;
   z-index: 2;
   bottom: 40px;

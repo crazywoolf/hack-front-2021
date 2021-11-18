@@ -120,7 +120,7 @@ export class ReaderView extends Component {
           />
         </QRBox>
 
-        <FeatureToggle>
+        <FeatureToggle noDisplay>
           <Button design='accent' size='xxl' onClick={this.handleClick}>
             не считался qr?. Жми
           </Button>
