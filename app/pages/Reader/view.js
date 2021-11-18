@@ -126,7 +126,7 @@ export class ReaderView extends Component {
           </Button>
         </FeatureToggle>
 
-        {popupOpen && <Popup info={info} userId={scanResult || info.id} onClose={this.onClose}/>}
+        {popupOpen && info && <Popup info={info} userId={scanResult || info.id} onClose={this.onClose}/>}
       </Fragment>
     );
   }
