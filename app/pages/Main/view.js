@@ -1,27 +1,36 @@
 import React from 'react';
-import { Button, P } from 'vienna-ui';
-import { CodeQr } from 'vienna.icons';
-import { Logo } from '../../components/Logo';
-import { Container, QRBox, MarginBox } from './styles';
+import {Button, P} from 'vienna-ui';
+import {Card, CodeQr} from 'vienna.icons';
+import {Logo} from '../../components/Logo';
+import {Container, QRBox, MarginBox} from './styles';
 
 export const MainPageView = (props) => {
-  const handleClick = () => {
-    props.history.push('/reader');
-  }
+    const handleClick = () => {
+        props.history.push('/reader');
+    }
 
-  return (
-    <Container>
-      <MarginBox size={80}>
-        <Logo />
-      </MarginBox>
+    const handleCardClick = () => {
+        props.history.push('/create-card');
+    }
 
-      <P color='brand-white' margin='xxl' size='xl'>Отсканируйте QR-код</P>
-      <QRBox />
+    return (
+        <Container>
+            <MarginBox size={80}>
+                <Logo/>
+            </MarginBox>
 
-      <Button design='accent' size='xxl' onClick={handleClick}>
-        <CodeQr />
-          Сканировать QR
-      </Button>
-    </Container>
-  );
+            <P color='brand-white' margin='xxl' size='xl'>Отсканируйте QR-код</P>
+            <QRBox/>
+
+            <Button design='accent' size='xxl' onClick={handleCardClick}>
+                <Card/>
+                Выпустить карту
+            </Button>
+
+            <Button design='accent' size='xxl' onClick={handleClick}>
+                <CodeQr/>
+                Сканировать QR
+            </Button>
+        </Container>
+    );
 }

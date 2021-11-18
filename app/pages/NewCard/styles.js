@@ -21,7 +21,10 @@ export const QRBox = styled.div`
   width: 241px;
   height: 241px;
   border: #FEE600 5px solid;
+  ${props => props.qrUrl && 'background-image: url("' + props.qrUrl + '")'};
+  background-repeat: no-repeat;
   background-position: center;
+  background-size: 100%;
   margin-bottom: auto;
 `;
 

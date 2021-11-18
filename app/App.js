@@ -4,6 +4,7 @@ import { Body } from 'vienna-ui';
 import {Container} from './styles';
 import {MainPage} from "./pages/Main";
 import {ReaderPage} from "./pages/Reader";
+import {NewCardPage} from "./pages/NewCard";
 
 export class App extends Component {
     render() {
@@ -17,6 +18,9 @@ export class App extends Component {
                             </Route>
                             <Route path={'/reader'} >
                                 <ReaderPage/>
+                            </Route>
+                            <Route path={'/create-card'} exact >
+                                <NewCardPage/>
                             </Route>
                         </Switch>
                     </HashRouter>
