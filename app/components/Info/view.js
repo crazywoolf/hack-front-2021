@@ -3,6 +3,7 @@ import {P} from 'vienna-ui';
 import { HandCash2, Card } from 'vienna.icons';
 import {AmountBox, CustomButton, DetailsBox, HeaderBox, IconBox, Row, TitleBox} from './styles';
 import {LogoSBP} from "../LogoSBP";
+import {amount} from "../../constants";
 
 export const InfoView = (props) => {
   const { info, handleClick } = props;
@@ -22,7 +23,7 @@ export const InfoView = (props) => {
         <DetailsBox>
             <Row>
                 <P size="l" color="seattle100">Сумма</P>
-                <P size="l" color="primary">2 589,00 ₽</P>
+                <P size="l" color="primary">{String(amount.toFixed(2)).replace('.', ',')} ₽</P>
             </Row>
             <Row>
                 <P size="l" color="seattle100">Скидка</P>
@@ -34,7 +35,7 @@ export const InfoView = (props) => {
             <Row>
                 <P size="xl" weight="medium" color="seattle100">К оплате</P>
                 <P size="xl" weight="medium" color="primary">
-                    {String(((2589 * (100 - info.discount) / 100)).toFixed(2)).replace('.', ',')} ₽
+                    {String(((amount * (100 - info.discount) / 100)).toFixed(2)).replace('.', ',')} ₽
                 </P>
             </Row>
         </AmountBox>

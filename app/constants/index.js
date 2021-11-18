@@ -8,3 +8,5 @@ export const ROUTES = {
   PAYMENT_SUCCESS: '/reader/status/success',
   PAYMENT_FAILED: '/reader/status/failed',
 }
+
+export const amount = 2589;
