@@ -24,5 +24,8 @@ module.exports = {
     },
     plugins: [
         HTMLWebpackPluginConfig,
-    ]
+    ],
+    devServer: {
+        https: true,
+    },
 };

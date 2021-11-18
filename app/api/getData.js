@@ -21,7 +21,9 @@ export const getData = (clientId, onSuccess, onFailed) => fetch(
       onFailed(mock);
     }
   })
-  .then(res => onSuccess(res))
+  .then(res => {
+      onSuccess(res);
+  })
   .catch(() => {
     onFailed(mock);
   });
