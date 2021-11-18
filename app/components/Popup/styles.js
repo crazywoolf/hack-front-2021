@@ -18,7 +18,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 32px 24px 48px;
+  padding: 32px 24px 64px;
   box-sizing: border-box;
   width: 100%;
   min-height: 424px;

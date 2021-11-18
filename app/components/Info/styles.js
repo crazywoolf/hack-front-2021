@@ -47,7 +47,7 @@ export const CustomButton = styled(Button)`
   border-radius: 32px;
   height: 52px;
   background-color: ${props => props.bgColor || '#F5F5F5'};
-  margin-bottom: 16px;
+  margin-bottom: ${props => props.marginBottom || '0'}px;
   font-size: 16px;
   font-weight: bold;
   

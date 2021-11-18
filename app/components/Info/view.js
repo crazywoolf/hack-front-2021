@@ -40,7 +40,11 @@ export const InfoView = (props) => {
             </Row>
         </AmountBox>
 
-        <CustomButton bgColor="#22589E" bgHoverColor="#15417b" onClick={handleClick}>
+        <CustomButton
+            bgColor="#22589E"
+            marginBottom="16"
+            bgHoverColor="#15417b"
+            onClick={handleClick}>
             <LogoSBP />
             Оплата по СБП
         </CustomButton>
