@@ -27,6 +27,7 @@ export class ReaderView extends Component {
   };
 
   onSuccess = (res) => {
+    console.log({res});
     this.setState({
       err: false,
       popupOpen: true,
@@ -51,8 +52,6 @@ export class ReaderView extends Component {
 
       this.setState({
         scanResult: data,
-        err: data === '',
-        popupOpen: data !== ''
       });
     }
   };
