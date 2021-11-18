@@ -22,7 +22,6 @@ export const PopupView = (props) => {
   }
 
   const handleClickPayment = () => {
-    console.log('handleClickPayment');
     const { userId, history } = props;
 
     setLoading(true);
