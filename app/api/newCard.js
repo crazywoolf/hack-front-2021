@@ -9,7 +9,7 @@ export const newCard = (onSuccess, onFailed) => fetch(
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            amount: client,
+            card: client,
         })
     }
 )
