@@ -1,7 +1,7 @@
 import {PAYMENT} from '../constants/urls';
 import {amount} from "../constants";
 
-export const payment = (clientId, onSuccess, onFailed) => fetch(
+export const payment = (clientId, discount, onSuccess, onFailed) => fetch(
     PAYMENT(clientId),
     {
         method: 'POST',
@@ -9,7 +9,7 @@ export const payment = (clientId, onSuccess, onFailed) => fetch(
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            amount: amount,
+            amount: (amount * (100 - discount || 10) / 100),
         })
     }
 )

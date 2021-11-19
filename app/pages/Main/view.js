@@ -24,7 +24,7 @@ export const MainPageView = (props) => {
 
             <Button design='accent' size='xxl' onClick={handleCardClick}>
                 <Card/>
-                Выпустить карту
+                Оплата по СБП
             </Button>
 
             <Button design='accent' size='xxl' onClick={handleClick}>

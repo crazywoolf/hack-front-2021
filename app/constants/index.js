@@ -11,7 +11,6 @@ export const ROUTES = {
 
 export const amount = 2589;
 export const client = {
-  amount: 1234,
   card: {
     fio: 'Андрей Личман',
     id: '1234abc',

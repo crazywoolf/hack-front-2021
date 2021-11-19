@@ -22,12 +22,13 @@ export const PopupView = (props) => {
   }
 
   const handleClickPayment = () => {
-    const { userId, history } = props;
+    const { userId, history, info } = props;
 
     setLoading(true);
 
     payment(
       userId,
+      info.discount,
       () => {
         onSuccess();
         history.push(ROUTES.PAYMENT_SUCCESS);
