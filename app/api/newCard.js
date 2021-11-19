@@ -8,9 +8,7 @@ export const newCard = (onSuccess, onFailed) => fetch(
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
-        body: JSON.stringify({
-            card: client,
-        })
+        body: JSON.stringify(client)
     }
 )
     .then(res => {
